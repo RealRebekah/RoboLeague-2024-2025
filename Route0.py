@@ -36,20 +36,19 @@ apple= 1050
 
 async def main():
     motion_sensor.reset_yaw(0)
-    motor_pair.pair(motor_pair.PAIR_1,port.A,port.E)
+    motor_pair.pair(motor_pair.PAIR_1,port.D,port.B)
 
 
 
-    await drive(86,500)
-    await turnLeft(85)
+    await drive(85,500)
+    await turnLeft(82)
     await drive(33,400)
     time.sleep_ms(50)
-    await drive(50,500)
-    await drive(5, 1000)
-    await turnRight(20)
-    await drive(5, 1000)
-    await turnLeft(20)
-    await drive(60, 1000)
+    await drive(52,500)
+    await turnRight(15)
+    await drive(15, 1000)
+    await turnLeft(11)
+    await drive(47, 1000)
     await turnLeft(75)
     time.sleep_ms(200)
     await drive(90,400)
