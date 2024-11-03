@@ -24,45 +24,55 @@ async def whiteout(speed, port):
 
 async def moveMotor(degrees,speed, side):
     if (side == "left"):
-        motor.run_for_degrees(port.F, degrees, speed, stop = motor.HOLD)
+        motor.run_for_degrees(port.A, degrees, speed, stop = motor.HOLD)
     if (side == "right"):
-        motor.run_for_degrees(port.B, degrees, speed, stop = motor.HOLD)
+        motor.run_for_degrees(port.C, degrees, speed, stop = motor.HOLD)
 
 max_speed = 1050
 async def main():
-    motor_pair.pair(motor_pair.PAIR_1,port.A,port.E)
+    motor_pair.pair(motor_pair.PAIR_1,port.B,port.D)
     # write your code here
     # drive forward
-    await drive(90,1000)
+    # await drive(90,1000)
+    await drive(-85,800)
     await turnLeft(47)
-    await drive(5,800)
-    await drive(-13,700)
+    await drive(10,800)
 
     await moveMotor(-200,max_speed,"left")
     time.sleep_ms(500)
     await moveMotor(150,200,"left")
     time.sleep_ms(200)
     ################### MODULE 3 #########################
-    await turnRight(31)
-    await drive(-3,700)
-    await turnRight(31)
-    await drive(7,700)
-    await moveMotor(200, 1000, "left")
+    await turnRight(29)
+    await drive(4,700)
+    await turnRight(32)
+    await drive(-7,700)
+    await moveMotor(250, 1000, "left")
     time.sleep_ms(100)
-    await moveMotor(-250,700, "left")
+    await moveMotor(-200,700, "left")
     time.sleep_ms(1000)
-    await moveMotor(250,1000,"left")
-    await drive(-20,700)
-    await turnRight(70)
-    await drive(-15,700)
+    await moveMotor(175,1000,"left")
+    await drive(7,700)
+    await turnRight(72)
+    await drive(18,700)
+    # MIGHT NOT WORK
+    await drive(-3,800)
+    await turnRight(35)
+    await drive(-19,900)
+    await turnLeft(27)
+    await drive(22,800)
     await moveMotor(-200,400,"left")
     time.sleep_ms(500)
-    await drive(10,700)
+    await drive(-8,700)
     time.sleep_ms(300)
-    await moveMotor(100,300,"left")
+    await moveMotor(200,300,"left")
     time.sleep_ms(500)
-    await drive(18,900)
-    await drive(-10,700)
+    await drive(-18,900)
+    await drive(10,700)
+    await turnRight(100)
+    await drive(-50,1050)
+
+
     # ################## MODULE 6 ###########################
 #    time.sleep_ms(200)
 #    await moveMotor(10,1000,"left")
@@ -73,6 +83,5 @@ async def main():
 #    await moveMotor(-300,1000,"left")
 #    await drive(10,max_speed)
 #    await moveMotor(100,1000,"left")
-
 
 runloop.run(main())
