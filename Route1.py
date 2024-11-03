@@ -24,14 +24,13 @@ async def whiteout(speed, port):
 
 async def moveMotor(degrees,speed, side):
     if (side == "left"):
-        motor.run_for_degrees(port.F, degrees, speed, stop = motor.HOLD)
+        motor.run_for_degrees(port.A, degrees, speed, stop = motor.HOLD)
     if (side == "right"):
-        motor.run_for_degrees(port.B, degrees, speed, stop = motor.HOLD)
-
+        motor.run_for_degrees(port.C, degrees, speed, stop = motor.HOLD)
 
 max_speed = 1050
 async def main():
     # write your code here
-    await moveMotor(150,1050,"left")
-runloop.run(main())
+    await moveMotor(150,1050, "left")
 
+runloop.run(main())
