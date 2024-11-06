@@ -1,4 +1,3 @@
-
 from hub import light_matrix, motion_sensor, port
 import runloop, motor_pair, motor,math,time,runloop, color, color_sensor
 
@@ -7,7 +6,6 @@ async def drive(distance, speed):
     motion_sensor.reset_yaw(0)
     CM = round(distance * 17.5)
     await motor_pair.move_for_degrees(motor_pair.PAIR_1, CM, 0, velocity = speed, stop=motor.SMART_COAST)
-    motion_sensor.reset_yaw(0)
 
 
 async def turnLeft(angle):
@@ -29,9 +27,9 @@ async def whiteout(speed, port):
 
 async def moveMotor(degrees,speed, side):
     if (side == "left"):
-        motor.run_for_degrees(port.F, degrees, speed, stop = motor.HOLD)
+        motor.run_for_degrees(port.C, degrees, speed, stop = motor.HOLD)
     if (side == "right"):
-        motor.run_for_degrees(port.B, degrees, speed, stop = motor.HOLD)
+        motor.run_for_degrees(port.A, degrees, speed, stop = motor.HOLD)
 apple= 1050
 
 async def main():
@@ -41,17 +39,14 @@ async def main():
 
 
     await drive(85,500)
+    await turnLeft(83)
+    await drive(80,500)
+    await drive(65,500)
     await turnLeft(82)
     await drive(33,400)
     time.sleep_ms(50)
-    await drive(52,500)
-    await turnRight(15)
-    await drive(15, 1000)
-    await turnLeft(11)
-    await drive(47, 1000)
-    await turnLeft(75)
-    time.sleep_ms(200)
-    await drive(90,400)
+    await drive(53,500)
+
 
 
 runloop.run(main())
