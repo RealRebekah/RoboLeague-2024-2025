@@ -41,11 +41,16 @@ async def main():
     await drive(85,500)
     await turnLeft(83)
     await drive(80,500)
-    await drive(65,500)
-    await turnLeft(82)
-    await drive(33,400)
-    time.sleep_ms(50)
-    await drive(53,500)
+    await turnLeft(5)
+    await drive(42,500)
+    await drive(3,500)
+    await turnLeft(35)
+    await drive(30,500)
+    await turnLeft(8)
+    await drive(19,600)
+    await turnLeft(48)
+    await drive(63,400)
+
 
 
 
