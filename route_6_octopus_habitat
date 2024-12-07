@@ -33,12 +33,18 @@ async def main():
     motion_sensor.reset_yaw(0)
     motor_pair.pair(motor_pair.PAIR_1,port.D,port.B)
 
-    await drive(13,apple)
-    await turnRight(52)
-    await drive(50,apple)
-    time.sleep_ms(1000)
-    await moveMotor(260,1500,"right")
-    time.sleep_ms(750)
-    await drive(-60,900)
-    await moveMotor(-260,1500,"right")
+    await drive(80,apple)
+    await turnLeft(90)
+    await drive(40,apple)
+    await drive(-40,apple)
+    await turnLeft(90)
+    await drive(80,apple)
+
+
+
+
+
+
+
+
 runloop.run(main())
